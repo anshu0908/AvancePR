@@ -125,19 +125,41 @@ All content is structured as typed TypeScript modules inside `src/data/`:
 
 ---
 
-## 7. Deployment
+## 7. Deployment to Vercel
 
-### Vercel / Netlify
-Deploy with build command `npm run build` and output directory `dist`.
-For SPA client-side routing on Netlify, add a `_redirects` file in `public/`:
-```
-/*    /index.html   200
-```
-Or on Vercel (`vercel.json`):
-```json
-{
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
+The repository is pre-configured with [`vercel.json`](file:///c:/Work/AvancePR/vercel.json) for instantaneous deployment with zero extra configuration.
+
+### Option A: Via GitHub (Recommended)
+1. Create a new repository on your GitHub account (e.g. `avancepr-rebuild`).
+2. Push your local `main` branch to GitHub:
+   ```bash
+   git remote add origin https://github.com/<YOUR-USERNAME>/<YOUR-REPO-NAME>.git
+   git branch -M main
+   git push -u origin main
+   ```
+3. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
+4. Import your GitHub repository.
+5. Vercel automatically detects **Vite**:
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build` (`tsc && vite build`)
+   - **Output Directory**: `dist`
+6. Click **Deploy**. Your site will be live within 30 seconds!
+
+### Option B: Via Vercel CLI
+```bash
+# 1. Install or run Vercel CLI directly
+npx vercel
+
+# 2. When prompted:
+# - Set up and deploy: Yes
+# - Which scope: your account
+# - Link to existing project: No
+# - Project name: avancepr
+# - In which directory is your code located: ./
+# - Want to modify these settings: No
+
+# 3. For production release:
+npx vercel --prod
 ```
 
 ---
