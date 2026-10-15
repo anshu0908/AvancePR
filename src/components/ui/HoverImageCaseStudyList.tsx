@@ -36,10 +36,12 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
+    if (!isInside) setIsInside(true);
     const rect = containerRef.current.getBoundingClientRect();
-    // Center card on cursor so the "VIEW" button sits in the center of the image
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    // Center the card on cursor so the "VIEW" button sits directly in the center of the image
+    // Card width: 280px (half: 140px), height: 380px (half: 190px)
+    const x = e.clientX - rect.left - 140;
+    const y = e.clientY - rect.top - 190;
     mouseX.set(x);
     mouseY.set(y);
   };
@@ -94,11 +96,9 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
         style={{
           x: smoothX,
           y: smoothY,
-          translateX: '-50%',
-          translateY: '-50%',
           pointerEvents: 'none'
         }}
-        className="hidden lg:block absolute top-0 left-0 z-40 w-[250px] xl:w-[280px] h-[350px] xl:h-[395px]"
+        className="hidden lg:block absolute top-0 left-0 z-40 w-[280px] h-[380px]"
       >
         <AnimatePresence mode="wait">
           {isInside && activeItem && (
@@ -151,7 +151,10 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
             <Link
               key={item.id}
               to={`/work/${item.slug}`}
-              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseEnter={() => {
+                setIsInside(true);
+                setHoveredIndex(index);
+              }}
               onFocus={() => setHoveredIndex(index)}
               onBlur={() => setHoveredIndex(null)}
               className="group relative flex flex-col lg:flex-row lg:items-center justify-between py-8 sm:py-10 px-3 sm:px-6 transition-all duration-300 hover:bg-white/[0.03] rounded-2xl cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-gold"
