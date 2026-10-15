@@ -18,7 +18,7 @@ export const TestimonialsSection: React.FC = () => {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section className="relative w-full py-24 sm:py-36 bg-dark-bg text-light-bg overflow-hidden border-b border-white/10">
+    <section className="relative w-full py-24 sm:py-36 bg-transparent text-light-bg overflow-hidden border-b border-white/10">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-brand-gold/5 blur-[160px] pointer-events-none" />
 
@@ -36,16 +36,18 @@ export const TestimonialsSection: React.FC = () => {
               0{currentIndex + 1} / 0{TESTIMONIALS.length}
             </span>
             <button
+              type="button"
               onClick={prev}
               aria-label="Previous testimonial"
-              className="w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white hover:text-brand-gold transition-colors"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white hover:text-brand-gold transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
+              type="button"
               onClick={next}
               aria-label="Next testimonial"
-              className="w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white hover:text-brand-gold transition-colors"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white hover:text-brand-gold transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -66,18 +68,18 @@ export const TestimonialsSection: React.FC = () => {
               className="flex flex-col justify-between flex-grow"
             >
               {/* Highlight Quote */}
-              <blockquote className="text-[20px] sm:text-[26px] lg:text-[30px] font-medium leading-[1.35] text-white tracking-[-0.01em] [text-wrap:pretty]">
+              <blockquote className="text-[18px] sm:text-[24px] lg:text-[28px] font-medium leading-[1.38] text-white tracking-[-0.01em] [text-wrap:pretty]">
                 "{current.quote}"
               </blockquote>
 
               {/* Attribution */}
               <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-bronze flex items-center justify-center text-dark-bg font-extrabold text-lg shadow-md">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-bronze flex items-center justify-center text-dark-bg font-extrabold text-lg shadow-md shrink-0">
                     {current.name.charAt(0)}
                   </div>
                   <div>
-                    <div className="text-[17px] font-bold text-white">
+                    <div className="text-[16px] sm:text-[17px] font-bold text-white">
                       {current.name}
                     </div>
                     <div className="text-[13px] text-zinc-400">
@@ -104,16 +106,18 @@ export const TestimonialsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Thumbnail Selector Strip */}
-        <div className="mt-8 grid grid-cols-4 sm:grid-cols-8 gap-2.5">
+        {/* Thumbnail Selector Strip (Horizontal Scroll on Mobile, Grid on Desktop) */}
+        <div className="mt-8 flex sm:grid sm:grid-cols-8 overflow-x-auto no-scrollbar gap-2.5 pb-2">
           {TESTIMONIALS.map((t, idx) => (
             <button
               key={t.id}
+              type="button"
+              aria-pressed={currentIndex === idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`p-2.5 rounded-xl border text-left transition-all ${
+              className={`p-2.5 rounded-xl border text-left transition-all shrink-0 min-w-[100px] sm:min-w-0 focus-visible:ring-2 focus-visible:ring-brand-gold cursor-pointer ${
                 currentIndex === idx
                   ? 'bg-brand-gold/15 border-brand-gold text-brand-gold'
-                  : 'bg-white/5 border-white/10 text-zinc-400 hover:text-white'
+                  : 'bg-white/5 border-white/10 text-zinc-400 hover:text-white hover:bg-white/10'
               }`}
             >
               <div className="text-[11px] font-mono">0{idx + 1}</div>

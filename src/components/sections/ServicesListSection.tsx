@@ -43,7 +43,7 @@ export const ServicesListSection: React.FC = () => {
   return (
     <section
       id="services"
-      className="relative w-full py-24 sm:py-32 bg-dark-bg text-light-bg border-b border-white/10 overflow-hidden"
+      className="relative w-full py-24 sm:py-32 bg-transparent text-light-bg border-b border-white/10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header with View Mode Toggle */}

@@ -40,7 +40,7 @@ export const AboutPage: React.FC = () => {
         <link rel="canonical" href="https://www.avancepr.in/about" />
       </Helmet>
 
-      <main id="main-content" className="pt-28 sm:pt-36 bg-dark-bg text-light-bg">
+      <main id="main-content" className="pt-28 sm:pt-36 bg-transparent text-light-bg">
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto px-5 sm:px-8 pb-20 border-b border-white/10">
           <div className="inline-flex items-center gap-2 mb-4">
@@ -64,12 +64,16 @@ export const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-stone-800 bg-stone-900">
-                <img
-                  src={SITE_CONFIG.founder.image}
-                  alt="Ritika Garg, Founder"
-                  className="w-full h-auto aspect-[4/5] object-cover object-top"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcSet="/assets/ritika.webp" type="image/webp" />
+                  <img
+                    src={SITE_CONFIG.founder.image}
+                    alt="Ritika Garg, Founder & CEO of Avance PR"
+                    className="w-full h-auto aspect-[4/5] object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 text-white">
                   <span className="text-brand-gold text-xs font-bold uppercase tracking-wider font-mono">

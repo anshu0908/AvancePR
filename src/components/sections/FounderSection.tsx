@@ -12,20 +12,23 @@ export const FounderSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 sm:py-36 bg-dark-bg text-light-bg overflow-hidden border-b border-white/10">
+    <section className="relative w-full py-24 sm:py-36 bg-transparent text-light-bg overflow-hidden border-b border-white/10">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Portrait Column (5 cols) */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-stone-800 bg-stone-900 group">
-              <img
-                src={SITE_CONFIG.founder.image}
-                alt={SITE_CONFIG.founder.name}
-                className="w-full h-auto aspect-[4/5] object-cover object-top transition-transform duration-700 group-hover:scale-102"
-                loading="lazy"
-                width="600"
-                height="750"
-              />
+              <picture>
+                <source srcSet="/assets/ritika.webp" type="image/webp" />
+                <img
+                  src={SITE_CONFIG.founder.image}
+                  alt={SITE_CONFIG.founder.name}
+                  className="w-full h-auto aspect-[4/5] object-cover object-top transition-transform duration-700 group-hover:scale-102"
+                  loading="lazy"
+                  width="600"
+                  height="750"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
 
               {/* Founder Tag on Image */}

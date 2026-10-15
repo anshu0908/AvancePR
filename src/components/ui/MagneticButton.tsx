@@ -33,6 +33,9 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseEnter = () => {
+    if (typeof window !== 'undefined' && (window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      return;
+    }
     if (btnRef.current) {
       const rect = btnRef.current.getBoundingClientRect();
       rectRef.current = {
@@ -45,6 +48,9 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== 'undefined' && (window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      return;
+    }
     if (!rectRef.current) {
       if (btnRef.current) {
         const rect = btnRef.current.getBoundingClientRect();

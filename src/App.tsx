@@ -17,6 +17,8 @@ import { ContactPage } from '@/pages/ContactPage';
 import { PrivacyPolicyPage } from '@/pages/PrivacyPolicyPage';
 import { TermsPage } from '@/pages/TermsPage';
 import { CookieConsentBanner } from '@/components/ui/CookieConsentBanner';
+import { FixedContactButtons } from '@/components/ui/FixedContactButtons';
+import { Scroll3DDotsBackground } from '@/components/three/Scroll3DDotsBackground';
 
 const ScrollToTop: React.FC = () => {
   const { pathname, hash } = useLocation();
@@ -82,9 +84,11 @@ export const App: React.FC = () => {
       <BrowserRouter>
         <ScrollToTop />
         <CustomCursor />
+        <Scroll3DDotsBackground />
         <div className="grain-overlay" aria-hidden="true" />
         <CookieConsentBanner />
-        <div className="flex flex-col min-h-screen bg-dark-bg text-light-bg selection:bg-brand-gold selection:text-white">
+        <FixedContactButtons />
+        <div className="relative flex flex-col min-h-screen bg-transparent text-light-bg selection:bg-brand-gold selection:text-white z-10">
           <Navbar />
           <div className="flex-1 w-full">
             <AnimatedRoutes />

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { gsap } from '@/lib/gsap';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 
 export const IntroScrubSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +17,7 @@ export const IntroScrubSection: React.FC = () => {
 
       gsap.fromTo(
         wordElements,
-        { opacity: 0.18, y: 3 },
+        { opacity: 0.2, y: 3 },
         {
           opacity: 1,
           y: 0,
@@ -27,19 +27,27 @@ export const IntroScrubSection: React.FC = () => {
             trigger: containerRef.current,
             start: 'top 75%',
             end: 'bottom 45%',
-            scrub: 0.6
+            scrub: 0.7,
+            invalidateOnRefresh: true
           }
         }
       );
     }, containerRef);
 
-    return () => ctx.revert();
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => {
+      clearTimeout(timer);
+      ctx.revert();
+    };
   }, []);
 
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-24 sm:py-36 bg-dark-bg text-light-bg border-b border-white/10 overflow-hidden"
+      className="relative w-full py-20 sm:py-36 bg-transparent text-light-bg border-b border-white/10 overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-5 sm:px-8">
         <div className="inline-flex items-center gap-2 mb-6">
@@ -51,12 +59,12 @@ export const IntroScrubSection: React.FC = () => {
 
         <p
           ref={textRef}
-          className="text-[28px] sm:text-[40px] md:text-[48px] lg:text-[54px] font-semibold tracking-[-0.03em] leading-[1.18] font-sans text-white"
+          className="text-[22px] min-[360px]:text-[26px] sm:text-[36px] md:text-[44px] lg:text-[50px] font-semibold tracking-[-0.03em] leading-[1.22] font-sans text-white [text-wrap:pretty]"
         >
           {words.map((word, index) => (
             <span
               key={index}
-              className="scrub-word inline-block mr-[0.24em] will-change-transform"
+              className="scrub-word inline-block mr-[0.24em] will-change-transform opacity-20"
             >
               {word}
             </span>

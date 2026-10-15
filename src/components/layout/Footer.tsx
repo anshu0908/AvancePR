@@ -10,12 +10,12 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-dark-bg text-light-bg border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-transparent text-light-bg border-t border-white/10 relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-gold/5 blur-[140px] pointer-events-none" />
 
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-16 sm:pb-12 pb-[calc(4rem+env(safe-area-inset-bottom,0px))]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-16 border-b border-white/10">
           {/* Brand Info */}
           <div className="lg:col-span-2 flex flex-col gap-5">

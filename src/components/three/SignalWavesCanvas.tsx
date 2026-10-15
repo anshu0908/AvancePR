@@ -2,32 +2,17 @@ import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { SignalWavesScene } from './SignalWavesScene';
 import { SignalWavesFallback } from './SignalWavesFallback';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
-
 export const SignalWavesCanvas: React.FC = () => {
-  const prefersReduced = useReducedMotion();
   const [shouldRender3D, setShouldRender3D] = useState(false);
 
   useEffect(() => {
-    // 1. Check reduced motion
-    if (prefersReduced) {
+    // 1. Check viewport size (disable heavy 3D on mobile < 768px as per design brief)
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
       setShouldRender3D(false);
       return;
     }
 
-    // 2. Check viewport size (disable 3D on mobile < 768px as per brief)
-    if (window.innerWidth < 768) {
-      setShouldRender3D(false);
-      return;
-    }
-
-    // 3. Check low-power hardware (hardwareConcurrency <= 4)
-    if (typeof navigator !== 'undefined' && navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) {
-      setShouldRender3D(false);
-      return;
-    }
-
-    // 4. Verify WebGL support
+    // 2. Verify WebGL support
     try {
       const canvas = document.createElement('canvas');
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -41,7 +26,7 @@ export const SignalWavesCanvas: React.FC = () => {
     }
 
     setShouldRender3D(true);
-  }, [prefersReduced]);
+  }, []);
 
   if (!shouldRender3D) {
     return <SignalWavesFallback />;

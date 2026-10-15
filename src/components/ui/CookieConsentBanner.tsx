@@ -36,9 +36,9 @@ export const CookieConsentBanner: React.FC = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 40, scale: 0.95 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-5 sm:bottom-7 left-5 right-5 sm:left-auto sm:right-7 z-[9990] max-w-lg w-full"
+          className="fixed bottom-0 left-0 right-0 sm:bottom-6 sm:left-6 sm:right-auto z-[9990] sm:max-w-md w-full px-4 pb-4 sm:px-0 sm:pb-0"
         >
-          <div className="p-6 sm:p-7 rounded-2xl bg-dark-bg/95 backdrop-blur-xl border border-brand-gold/30 text-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+          <div className="p-5 sm:p-6 rounded-2xl bg-dark-bg/95 backdrop-blur-xl border border-brand-gold/30 text-white shadow-[0_20px_50px_rgba(0,0,0,0.7)] relative overflow-hidden">
             {/* Ambient Gold Glow */}
             <div className="absolute top-0 right-0 w-36 h-36 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none" />
 

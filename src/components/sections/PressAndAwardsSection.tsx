@@ -8,7 +8,7 @@ export const PressAndAwardsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'press' | 'awards'>('press');
 
   return (
-    <section className="relative w-full py-24 sm:py-36 bg-dark-bg text-light-bg overflow-hidden border-b border-white/10">
+    <section className="relative w-full py-24 sm:py-36 bg-transparent text-light-bg overflow-hidden border-b border-white/10">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
           <SectionHeading
@@ -19,27 +19,39 @@ export const PressAndAwardsSection: React.FC = () => {
           />
 
           {/* Toggle Pills */}
-          <div className="flex items-center p-1 rounded-full bg-stone-900 border border-white/10 self-start sm:self-auto">
+          <div
+            role="tablist"
+            aria-label="Media coverage and awards"
+            className="flex items-center p-1 rounded-full bg-stone-900 border border-white/10 self-start sm:self-auto"
+          >
             <button
+              id="tab-press"
+              role="tab"
+              aria-selected={activeTab === 'press'}
+              aria-controls="panel-press"
               onClick={() => setActiveTab('press')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold ${
                 activeTab === 'press'
-                  ? 'bg-brand-gold text-white shadow-md'
+                  ? 'bg-brand-gold text-dark-bg shadow-md'
                   : 'text-stone-400 hover:text-white'
               }`}
             >
-              <Newspaper className="w-3.5 h-3.5 text-white" />
+              <Newspaper className="w-3.5 h-3.5" />
               <span>Press Coverage ({PRESS_ITEMS.length})</span>
             </button>
             <button
+              id="tab-awards"
+              role="tab"
+              aria-selected={activeTab === 'awards'}
+              aria-controls="panel-awards"
               onClick={() => setActiveTab('awards')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold ${
                 activeTab === 'awards'
-                  ? 'bg-brand-gold text-white shadow-md'
+                  ? 'bg-brand-gold text-dark-bg shadow-md'
                   : 'text-stone-400 hover:text-white'
               }`}
             >
-              <Award className="w-3.5 h-3.5 text-white" />
+              <Award className="w-3.5 h-3.5" />
               <span>Awards & Honors ({AWARDS.length})</span>
             </button>
           </div>
@@ -47,14 +59,19 @@ export const PressAndAwardsSection: React.FC = () => {
 
         {/* Tab 1: Refined Editorial Press Table */}
         {activeTab === 'press' && (
-          <div className="divide-y divide-white/10 border-y border-white/10">
+          <div
+            id="panel-press"
+            role="tabpanel"
+            aria-labelledby="tab-press"
+            className="divide-y divide-white/10 border-y border-white/10"
+          >
             {PRESS_ITEMS.map((item, index) => (
               <a
                 key={item.id}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col md:flex-row md:items-center justify-between py-6 sm:py-7 px-2 hover:bg-white/5 transition-colors duration-200"
+                className="group flex flex-col md:flex-row md:items-center justify-between py-6 sm:py-7 px-2 hover:bg-white/5 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:rounded-lg"
               >
                 <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-8 max-w-4xl">
                   <div className="flex items-center gap-3 shrink-0">
@@ -76,8 +93,8 @@ export const PressAndAwardsSection: React.FC = () => {
                     <span>{item.year}</span>
                   </div>
 
-                  <div className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center group-hover:border-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all">
-                    <ArrowUpRight className="w-4 h-4 text-stone-300 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center group-hover:border-brand-gold group-hover:bg-brand-gold group-hover:text-dark-bg transition-all">
+                    <ArrowUpRight className="w-4 h-4 text-stone-300 group-hover:text-dark-bg group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
               </a>
@@ -87,7 +104,12 @@ export const PressAndAwardsSection: React.FC = () => {
 
         {/* Tab 2: Awards Timeline */}
         {activeTab === 'awards' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            id="panel-awards"
+            role="tabpanel"
+            aria-labelledby="tab-awards"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {AWARDS.map((award, index) => (
               <div
                 key={award.id}

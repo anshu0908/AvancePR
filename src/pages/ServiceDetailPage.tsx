@@ -55,7 +55,7 @@ export const ServiceDetailPage: React.FC = () => {
         <link rel="canonical" href={`https://www.avancepr.in/services/${service.slug}`} />
       </Helmet>
 
-      <main id="main-content" className="pt-28 sm:pt-36 bg-dark-bg text-light-bg">
+      <main id="main-content" className="pt-28 sm:pt-36 bg-transparent text-light-bg">
         {/* Back Link & Breadcrumb */}
         <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-8">
           <Link
@@ -204,14 +204,17 @@ export const ServiceDetailPage: React.FC = () => {
                 to={`/work/${cs.slug}`}
                 className="group flex flex-col rounded-2xl overflow-hidden bg-dark-surface border border-white/10 shadow-lg hover:border-brand-gold/60 transition-all"
               >
-                <div className="relative w-full h-64 overflow-hidden bg-stone-900">
-                  <img
-                    src={cs.coverImage}
-                    alt={cs.client}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/75 text-xs font-mono text-brand-gold border border-brand-gold/30">
+                <div className="relative w-full aspect-[1/1.3] overflow-hidden bg-stone-900">
+                  <picture>
+                    <source srcSet={cs.coverImage.replace(/\.(png|jpe?g)$/, '.webp')} type="image/webp" />
+                    <img
+                      src={cs.coverImage}
+                      alt={cs.client}
+                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-xs font-mono text-brand-gold border border-brand-gold/30 shadow-md">
                     {cs.category}
                   </div>
                 </div>

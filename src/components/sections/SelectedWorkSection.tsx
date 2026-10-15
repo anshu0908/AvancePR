@@ -46,7 +46,7 @@ export const SelectedWorkSection: React.FC = () => {
   return (
     <section
       id="work"
-      className="relative w-full py-24 lg:py-32 bg-dark-bg text-light-bg overflow-hidden border-b border-white/10"
+      className="relative w-full py-24 lg:py-32 bg-transparent text-light-bg overflow-hidden border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-12 lg:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <SectionHeading

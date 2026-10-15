@@ -29,7 +29,14 @@ export const SITE_CONFIG = {
     whatsapp: 'https://wa.me/919899707349?text=Hello%20Avance%20PR%20team%2C%20I%20would%20like%20to%20discuss%20a%20PR%20campaign%20for%20my%20brand.',
     instagram: 'https://www.instagram.com/avance.pr/',
     twitter: 'https://twitter.com/Avancepr_',
-    linkedin: 'https://www.linkedin.com/company/avancepr/'
+    linkedin: 'https://www.linkedin.com/company/avancepr/',
+    fixedButtons: {
+      email: 'info@avancepr.in',
+      emailSubject: 'Strategic Communications Inquiry — Avance PR',
+      emailBody: "Hi Avance PR team,\n\nI would like to explore a strategic communications partnership for my organization.\n\nBrand / Organization:\nContact Name:\nPhone / WhatsApp:",
+      whatsappNumber: '919899707349',
+      whatsappPrefillText: "Hi Avance PR team, I'd like to know more about your services."
+    }
   },
   navLinks: [
     { name: 'About', href: '/about' },

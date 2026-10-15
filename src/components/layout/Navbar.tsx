@@ -50,6 +50,17 @@ export const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Handle escape key to dismiss mobile menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMobileMenuOpen]);
+
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -130,8 +141,10 @@ export const Navbar: React.FC = () => {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle navigation menu"
-              className="md:hidden w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/15 text-white border border-white/10 transition-colors"
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
+              className="md:hidden w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/15 text-white border border-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold cursor-pointer"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5 text-brand-gold" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -143,11 +156,15 @@ export const Navbar: React.FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation Menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-dark-bg/98 backdrop-blur-xl md:hidden flex flex-col justify-between pt-24 pb-8 px-6 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-dark-bg/98 backdrop-blur-xl md:hidden flex flex-col justify-between pt-24 pb-8 px-6 overflow-y-auto pb-[calc(2rem+env(safe-area-inset-bottom,0px))]"
           >
             {/* Background ambient radial glow */}
             <div className="absolute top-1/4 -right-1/4 w-80 h-80 rounded-full bg-brand-gold/10 blur-[100px] pointer-events-none" />

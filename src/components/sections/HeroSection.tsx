@@ -11,11 +11,10 @@ export const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Line split reveal animation using GSAP
       if (headlineRef.current) {
         gsap.fromTo(
           headlineRef.current.querySelectorAll('.hero-line'),
-          { y: 80, opacity: 0, rotateX: -15 },
+          { y: 60, opacity: 0, rotateX: -10 },
           {
             y: 0,
             opacity: 1,
@@ -44,22 +43,22 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-screen flex flex-col justify-between bg-dark-bg text-light-bg overflow-hidden pt-28 sm:pt-32 pb-6"
+      className="relative w-full min-h-[92vh] sm:min-h-screen flex flex-col justify-between bg-transparent text-light-bg overflow-hidden pt-24 sm:pt-32 pb-6"
     >
       {/* 3D WebGL concentric broadcast wave scene */}
       <SignalWavesCanvas />
 
       {/* Main Content Hero Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full my-auto flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 w-full my-auto flex flex-col items-center text-center">
         {/* Eyebrow badge */}
         <motion.div
-          initial={{ opacity: 0, y: -15 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-brand-gold/25 backdrop-blur-md mb-6 sm:mb-8"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/5 border border-brand-gold/30 backdrop-blur-md mb-6 sm:mb-8"
         >
-          <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-          <span className="text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-brand-gold">
+          <Sparkles className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+          <span className="text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.16em] text-brand-gold">
             Strategic Communications Agency · Gurugram
           </span>
         </motion.div>
@@ -67,7 +66,7 @@ export const HeroSection: React.FC = () => {
         {/* Hero Main Headline (Split-Text Reveal) */}
         <h1
           ref={headlineRef}
-          className="text-[44px] sm:text-[68px] md:text-[84px] lg:text-[100px] font-extrabold tracking-[-0.035em] leading-[0.98] max-w-5xl [text-wrap:balance]"
+          className="text-[34px] min-[370px]:text-[40px] sm:text-[62px] md:text-[80px] lg:text-[98px] font-extrabold tracking-[-0.035em] leading-[1.04] sm:leading-[0.98] max-w-5xl [text-wrap:balance]"
         >
           <span className="block overflow-hidden">
             <span className="hero-line block text-white drop-shadow-sm">
@@ -131,6 +130,7 @@ export const HeroSection: React.FC = () => {
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, idx) => (
               <span
                 key={idx}
+                aria-hidden={idx >= marqueeItems.length}
                 className="inline-flex items-center gap-6 px-6 text-[13px] uppercase tracking-[0.14em] text-zinc-400 font-medium"
               >
                 <span>{item}</span>

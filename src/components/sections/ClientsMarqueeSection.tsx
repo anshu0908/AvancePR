@@ -27,20 +27,21 @@ export const ClientsMarqueeSection: React.FC = () => {
     { name: 'HostBooks Cloud', img: '/assets/clients/logo2.png' }
   ];
 
-  const renderBadge = (item: { name: string; img?: string; textBadge?: string }, key: number) => (
+  const renderBadge = (item: { name: string; img?: string; textBadge?: string }, key: number, isDuplicate = false) => (
     <div
       key={key}
-      className="flex-shrink-0 mx-4 px-7 py-4 rounded-xl bg-dark-surface border border-white/10 shadow-lg flex items-center justify-center min-w-[160px] h-20 transition-all duration-300 filter hover:border-brand-gold/60 hover:shadow-brand-gold/10 cursor-pointer select-none group"
+      aria-hidden={isDuplicate}
+      className="flex-shrink-0 mx-3 sm:mx-4 px-6 sm:px-7 py-3 sm:py-4 rounded-2xl bg-dark-surface/90 border border-white/10 shadow-lg flex items-center justify-center min-w-[150px] sm:min-w-[175px] h-18 sm:h-20 transition-all duration-300 hover:border-brand-gold/60 hover:bg-white/[0.04] cursor-pointer select-none group"
     >
       {item.img ? (
         <img
           src={item.img}
           alt={item.name}
-          className="max-h-11 w-auto object-contain opacity-65 group-hover:opacity-100 brightness-150 transition-all"
+          className="max-h-10 sm:max-h-11 w-auto max-w-[120px] object-contain opacity-75 group-hover:opacity-100 brightness-125 contrast-125 transition-all duration-300"
           loading="lazy"
         />
       ) : (
-        <span className="font-extrabold text-[15px] tracking-wider text-stone-300 group-hover:text-brand-gold transition-colors font-sans">
+        <span className="font-extrabold text-[13px] sm:text-[14px] tracking-wider text-stone-300 group-hover:text-brand-gold transition-colors font-sans">
           {item.textBadge}
         </span>
       )}
@@ -48,7 +49,7 @@ export const ClientsMarqueeSection: React.FC = () => {
   );
 
   return (
-    <section id="clients" className="relative w-full py-20 sm:py-28 bg-dark-bg text-light-bg overflow-hidden border-b border-white/10">
+    <section id="clients" className="relative w-full py-20 sm:py-28 bg-transparent text-light-bg overflow-hidden border-b border-white/10">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-14 text-center">
         <SectionHeading
           align="center"
@@ -63,7 +64,7 @@ export const ClientsMarqueeSection: React.FC = () => {
       <div className="relative w-full overflow-hidden flex py-2 group/marquee">
         <div className="flex w-max animate-marquee-left group-hover/marquee:[animation-play-state:paused]">
           {[...clientLogosRow1, ...clientLogosRow1, ...clientLogosRow1].map((item, idx) =>
-            renderBadge(item, idx)
+            renderBadge(item, idx, idx >= clientLogosRow1.length)
           )}
         </div>
       </div>
@@ -72,7 +73,7 @@ export const ClientsMarqueeSection: React.FC = () => {
       <div className="relative w-full overflow-hidden flex py-3 mt-3 group/marquee">
         <div className="flex w-max animate-marquee-right group-hover/marquee:[animation-play-state:paused]">
           {[...clientLogosRow2, ...clientLogosRow2, ...clientLogosRow2].map((item, idx) =>
-            renderBadge(item, idx)
+            renderBadge(item, idx, idx >= clientLogosRow2.length)
           )}
         </div>
       </div>

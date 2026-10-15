@@ -5,7 +5,7 @@ import { MagneticButton } from '@/components/ui/MagneticButton';
 
 export const ClosingCtaSection: React.FC = () => {
   return (
-    <section className="relative w-full py-28 sm:py-40 bg-dark-bg text-light-bg overflow-hidden border-t border-white/10">
+    <section className="relative w-full py-28 sm:py-40 bg-transparent text-light-bg overflow-hidden border-t border-white/10">
       {/* Light concentric ripple echo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
         <div className="w-[300px] h-[300px] rounded-full border border-brand-gold/40 animate-pulse-subtle" />

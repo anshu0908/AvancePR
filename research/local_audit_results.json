@@ -1,0 +1,421 @@
+{
+  "timestamp": "2026-10-15T16:34:57.067Z",
+  "consoleLogs": [],
+  "networkErrors": [],
+  "routeResults": {
+    "/": {
+      "status": 200,
+      "title": "Avance PR: Best PR Agency in India | Top PR Firms for Startups",
+      "totalImages": 37,
+      "brokenImages": [
+        {
+          "src": "http://localhost:3001/assets/work/stovekraft.png",
+          "alt": "Stovekraft",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/hostbooks.png",
+          "alt": "HostBooks",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/arc-electric.png",
+          "alt": "Arc Electric",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/minimalist-hotel.png",
+          "alt": "Minimalist Hotel",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/om-logistics.png",
+          "alt": "Om Logistics",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/amara-ai.jpeg",
+          "alt": "Amara.ai",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo1.png",
+          "alt": "Stovekraft",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo2.png",
+          "alt": "HostBooks",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo3.png",
+          "alt": "ARC Electric",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo4.png",
+          "alt": "Om Logistics",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo5.png",
+          "alt": "Amara.ai",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo6.png",
+          "alt": "Minimalist Hotel",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo7.png",
+          "alt": "Quantel",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo1.png",
+          "alt": "Stovekraft",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo2.png",
+          "alt": "HostBooks",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo3.png",
+          "alt": "ARC Electric",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo4.png",
+          "alt": "Om Logistics",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo5.png",
+          "alt": "Amara.ai",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo6.png",
+          "alt": "Minimalist Hotel",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo7.png",
+          "alt": "Quantel",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo1.png",
+          "alt": "Stovekraft",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo2.png",
+          "alt": "HostBooks",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo3.png",
+          "alt": "ARC Electric",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo4.png",
+          "alt": "Om Logistics",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo5.png",
+          "alt": "Amara.ai",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo6.png",
+          "alt": "Minimalist Hotel",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo7.png",
+          "alt": "Quantel",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo2.png",
+          "alt": "HostBooks Cloud",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo2.png",
+          "alt": "HostBooks Cloud",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/clients/logo2.png",
+          "alt": "HostBooks Cloud",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/ritika.jpeg",
+          "alt": "Ritika Garg",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        }
+      ],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    },
+    "/about": {
+      "status": 200,
+      "title": "About Us | Avance PR — Strategic Communications Agency",
+      "totalImages": 3,
+      "brokenImages": [],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    },
+    "/work": {
+      "status": 200,
+      "title": "Selected Work | Avance PR — High-Impact Case Studies",
+      "totalImages": 15,
+      "brokenImages": [
+        {
+          "src": "http://localhost:3001/assets/work/ayatiworks.jpeg",
+          "alt": "Ayatiworks",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/skills-caravan.jpeg",
+          "alt": "Skills Caravan",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/ramp-global.jpeg",
+          "alt": "Ramp Global",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/uplifters.jpeg",
+          "alt": "Uplifters",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/aarika.jpeg",
+          "alt": "Aarika Innovation",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/togopool.png",
+          "alt": "Togopool",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        },
+        {
+          "src": "http://localhost:3001/assets/work/prabhubhakti.jpeg",
+          "alt": "Prabhubhakti",
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "isBroken": true
+        }
+      ],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    },
+    "/services/startup-pr": {
+      "status": 200,
+      "title": "PR For Startups | Avance PR — Strategic Communications",
+      "totalImages": 4,
+      "brokenImages": [],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    },
+    "/work/hostbooks": {
+      "status": 200,
+      "title": "HostBooks Case Study | Avance PR",
+      "totalImages": 3,
+      "brokenImages": [],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    },
+    "/blogs": {
+      "status": 200,
+      "title": "PR Insights & Editorial | Avance PR — Strategic Communications",
+      "totalImages": 2,
+      "brokenImages": [],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    },
+    "/faq": {
+      "status": 200,
+      "title": "Frequently Asked Questions | Avance PR — Strategic Communications",
+      "totalImages": 2,
+      "brokenImages": [],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    },
+    "/contact": {
+      "status": 200,
+      "title": "Contact Avance PR | Strategic Communications Gurugram & Delhi NCR",
+      "totalImages": 2,
+      "brokenImages": [],
+      "hasHorizontalScroll": false,
+      "scrollWidth": 800,
+      "clientWidth": 800
+    }
+  },
+  "viewportResults": {
+    "320px_small_mobile": {
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "innerWidth": 320,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_320px_small_mobile.png"
+    },
+    "375px_standard_mobile": {
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "innerWidth": 375,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_375px_standard_mobile.png"
+    },
+    "390px_iphone14": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "innerWidth": 390,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_390px_iphone14.png"
+    },
+    "430px_large_phone": {
+      "scrollWidth": 430,
+      "clientWidth": 430,
+      "innerWidth": 430,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_430px_large_phone.png"
+    },
+    "768px_tablet": {
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "innerWidth": 768,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_768px_tablet.png"
+    },
+    "1024px_small_laptop": {
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "innerWidth": 1024,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_1024px_small_laptop.png"
+    },
+    "1280px_standard_laptop": {
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "innerWidth": 1280,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_1280px_standard_laptop.png"
+    },
+    "1440px_desktop": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "innerWidth": 1440,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_1440px_desktop.png"
+    },
+    "1920px_large_display": {
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "innerWidth": 1920,
+      "hasOverflow": false,
+      "overflowingElements": [],
+      "screenshot": "research/audit_shots/home_1920px_large_display.png"
+    }
+  }
+}

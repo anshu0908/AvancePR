@@ -6,12 +6,7 @@ export function useLenis() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      return;
-    }
-
+    // Initialize Lenis smooth scroll
     const lenis = new Lenis({
       autoRaf: false,
       duration: 1.0,

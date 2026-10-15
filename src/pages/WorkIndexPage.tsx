@@ -52,7 +52,7 @@ export const WorkIndexPage: React.FC = () => {
         <link rel="canonical" href="https://www.avancepr.in/work" />
       </Helmet>
 
-      <main id="main-content" className="pt-28 sm:pt-36 bg-dark-bg text-light-bg min-h-screen">
+      <main id="main-content" className="pt-28 sm:pt-36 bg-transparent text-light-bg min-h-screen">
         {/* Header Section */}
         <div className="max-w-7xl mx-auto px-5 sm:px-8 pb-10 border-b border-white/10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -187,26 +187,30 @@ export const WorkIndexPage: React.FC = () => {
                       to={`/work/${cs.slug}`}
                       className="group flex flex-col rounded-2xl overflow-hidden bg-dark-surface border border-white/10 shadow-lg hover:border-brand-gold/60 hover:shadow-brand-gold/10 transition-all duration-300 h-full"
                     >
-                      <div className="relative w-full h-60 overflow-hidden bg-stone-900">
-                        <img
-                          src={cs.coverImage}
-                          alt={cs.client}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="relative w-full aspect-[1/1.3] overflow-hidden bg-stone-900">
+                        <picture>
+                          <source srcSet={cs.coverImage.replace(/\.(png|jpe?g)$/, '.webp')} type="image/webp" />
+                          <img
+                            src={cs.coverImage}
+                            alt={cs.client}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-                        <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-mono text-brand-gold border border-brand-gold/30">
+                        <div className="absolute top-3.5 right-3.5">
+                          <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[11px] font-mono text-brand-gold border border-brand-gold/30 shadow-md">
                             {cs.category}
                           </span>
                         </div>
 
-                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                          <span className="font-mono text-xs text-zinc-300">
+                        <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between text-white">
+                          <span className="font-mono text-xs text-zinc-300 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md">
                             0{idx + 1}
                           </span>
-                          <div className="w-8 h-8 rounded-full bg-brand-gold text-dark-bg flex items-center justify-center transform translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                          <div className="w-8 h-8 rounded-full bg-brand-gold text-dark-bg flex items-center justify-center transform translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all shadow-lg">
                             <ArrowUpRight className="w-4 h-4" />
                           </div>
                         </div>

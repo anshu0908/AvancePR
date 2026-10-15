@@ -16,14 +16,17 @@ export const StatsBandSection: React.FC = () => {
         const suffix = el.getAttribute('data-suffix') || '';
 
         const obj = { val: 0 };
-        gsap.to(obj, {
+        gsap.fromTo(obj, { val: 0 }, {
           val: targetValue,
           duration: 2.2,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
-            once: true
+            once: true,
+            onEnter: () => {
+              el.textContent = '0' + suffix;
+            }
           },
           onUpdate: () => {
             el.textContent = Math.floor(obj.val) + suffix;
@@ -45,7 +48,7 @@ export const StatsBandSection: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-16 sm:py-24 bg-dark-bg text-light-bg border-b border-white/10"
+      className="relative w-full py-16 sm:py-24 bg-transparent text-light-bg border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Stats Grid */}
@@ -60,7 +63,7 @@ export const StatsBandSection: React.FC = () => {
                 data-suffix={stat.suffix}
                 className="stat-number text-[44px] sm:text-[60px] lg:text-[68px] font-extrabold tracking-[-0.03em] leading-none text-white font-sans"
               >
-                0{stat.suffix}
+                {stat.target}{stat.suffix}
               </div>
               <div className="mt-3 text-[16px] sm:text-[18px] font-bold text-brand-gold tracking-tight">
                 {stat.label}

@@ -28,7 +28,7 @@ export const CaseDetailPage: React.FC = () => {
         <link rel="canonical" href={`https://www.avancepr.in/work/${currentCase.slug}`} />
       </Helmet>
 
-      <main id="main-content" className="pt-28 sm:pt-36 bg-dark-bg text-light-bg min-h-screen">
+      <main id="main-content" className="pt-28 sm:pt-36 bg-transparent text-light-bg min-h-screen">
         {/* Navigation Breadcrumb */}
         <div className="max-w-6xl mx-auto px-5 sm:px-8 mb-8">
           <Link
@@ -72,15 +72,36 @@ export const CaseDetailPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Large Media Showcase */}
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
-          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-stone-800 bg-stone-900 max-h-[580px]">
-            <img
-              src={currentCase.coverImage}
-              alt={currentCase.client}
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
+        {/* Large Media Showcase (Ambient Luxury Editorial Stage) */}
+        <div className="max-w-5xl mx-auto px-5 sm:px-8 py-8 sm:py-12">
+          <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.8)] border border-white/15 bg-stone-950 py-10 sm:py-14 px-4 flex items-center justify-center">
+            {/* Ambient Brand Color Backdrop Glow */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <picture>
+                <source srcSet={currentCase.coverImage.replace(/\.(png|jpe?g)$/, '.webp')} type="image/webp" />
+                <img
+                  src={currentCase.coverImage}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-full h-full object-cover filter blur-3xl opacity-35 scale-125"
+                />
+              </picture>
+              <div className="absolute inset-0 bg-stone-950/60" />
+            </div>
+
+            {/* Crisp Foreground Poster Card in Authentic Resolution */}
+            <div className="relative z-10 w-full max-w-[340px] sm:max-w-[400px] aspect-[1/1.4] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_40px_rgba(212,151,59,0.15)] border-2 border-white/20 transition-transform duration-500 hover:scale-[1.01]">
+              <picture>
+                <source srcSet={currentCase.coverImage.replace(/\.(png|jpe?g)$/, '.webp')} type="image/webp" />
+                <img
+                  src={currentCase.coverImage}
+                  alt={currentCase.client}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
+            </div>
           </div>
         </div>
 

@@ -29,16 +29,17 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 240, mass: 0.18 };
+  // Match spring physics with CustomCursor so image and VIEW button move in perfect lockstep
+  const springConfig = { damping: 26, stiffness: 320, mass: 0.25 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    // Offset so card floats nicely to the right-center of the cursor
-    const x = e.clientX - rect.left + 24;
-    const y = e.clientY - rect.top - 110;
+    // Center card on cursor so the "VIEW" button sits in the center of the image
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
     mouseX.set(x);
     mouseY.set(y);
   };
@@ -71,8 +72,10 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
             return (
               <button
                 key={pill}
+                type="button"
+                aria-pressed={isActive}
                 onClick={() => onPillChange?.(pill)}
-                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-[13px] font-bold tracking-wide transition-all duration-300 border cursor-pointer select-none ${
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-[13px] font-bold tracking-wide transition-all duration-300 border cursor-pointer select-none focus-visible:ring-2 focus-visible:ring-brand-gold ${
                   isActive
                     ? 'bg-brand-gold text-dark-bg border-brand-gold font-extrabold shadow-[0_4px_20px_rgba(212,151,59,0.35)] scale-[1.03]'
                     : 'bg-stone-900/80 text-stone-300 border-white/10 hover:border-brand-gold/60 hover:text-white hover:bg-stone-850 backdrop-blur-md'
@@ -91,50 +94,49 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
         style={{
           x: smoothX,
           y: smoothY,
+          translateX: '-50%',
+          translateY: '-50%',
           pointerEvents: 'none'
         }}
-        className="hidden lg:block absolute top-0 left-0 z-40 w-[340px] xl:w-[380px] h-[220px] xl:h-[240px]"
+        className="hidden lg:block absolute top-0 left-0 z-40 w-[250px] xl:w-[280px] h-[350px] xl:h-[395px]"
       >
         <AnimatePresence mode="wait">
           {isInside && activeItem && (
             <motion.div
               key={activeItem.id}
-              initial={{ opacity: 0, scale: 0.85, rotate: -3 }}
+              initial={{ opacity: 0, scale: 0.88, rotate: -2 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ opacity: 0, scale: 0.9, rotate: 2 }}
+              exit={{ opacity: 0, scale: 0.92, rotate: 2 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full h-full rounded-2xl overflow-hidden border border-white/20 bg-stone-950 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+              className="relative w-full h-full rounded-2xl overflow-hidden border border-brand-gold/40 bg-stone-950 shadow-[0_25px_60px_-10px_rgba(0,0,0,0.9),0_0_30px_rgba(212,151,59,0.2)] backdrop-blur-xl"
             >
-              <img
-                src={activeItem.coverImage}
-                alt={activeItem.client}
-                className="w-full h-full object-cover transform scale-105 transition-transform duration-700"
-              />
+              <picture>
+                <source srcSet={activeItem.coverImage.replace(/\.(png|jpe?g)$/, '.webp')} type="image/webp" />
+                <img
+                  src={activeItem.coverImage}
+                  alt={activeItem.client}
+                  decoding="async"
+                  className="w-full h-full object-cover transform scale-[1.01] transition-transform duration-700"
+                />
+              </picture>
 
-              {/* Bottom Vignette & Information Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent flex flex-col justify-end p-5">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-brand-gold font-bold">
-                    {activeItem.category}
+              {/* Minimal Top & Bottom Luxury Accents */}
+              <div className="absolute top-3 right-3">
+                <span className="px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-brand-gold/40 text-[10px] font-mono font-bold text-brand-gold shadow-lg uppercase tracking-wider">
+                  {activeItem.category}
+                </span>
+              </div>
+
+              {activeItem.metrics && activeItem.metrics[0] && (
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/15">
+                  <span className="text-[11px] font-mono text-stone-300 truncate max-w-[140px]">
+                    {activeItem.metrics[0].label}
+                  </span>
+                  <span className="text-xs font-mono font-bold text-brand-gold shrink-0">
+                    {activeItem.metrics[0].value}
                   </span>
                 </div>
-
-                <div className="flex items-baseline justify-between gap-3">
-                  <h4 className="text-xl font-extrabold text-white tracking-tight">
-                    {activeItem.client}
-                  </h4>
-                  {activeItem.metrics && activeItem.metrics[0] && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-brand-gold/20 border border-brand-gold/30 text-brand-gold text-[11px] font-mono font-bold shrink-0">
-                      {activeItem.metrics[0].value}
-                    </span>
-                  )}
-                </div>
-
-                <p className="mt-1 text-xs text-stone-300 line-clamp-1 leading-snug">
-                  {activeItem.oneLiner}
-                </p>
-              </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
@@ -150,7 +152,9 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
               key={item.id}
               to={`/work/${item.slug}`}
               onMouseEnter={() => setHoveredIndex(index)}
-              className="group relative flex flex-col lg:flex-row lg:items-center justify-between py-8 sm:py-10 px-3 sm:px-6 transition-all duration-300 hover:bg-white/[0.03] rounded-2xl cursor-pointer"
+              onFocus={() => setHoveredIndex(index)}
+              onBlur={() => setHoveredIndex(null)}
+              className="group relative flex flex-col lg:flex-row lg:items-center justify-between py-8 sm:py-10 px-3 sm:px-6 transition-all duration-300 hover:bg-white/[0.03] rounded-2xl cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-gold"
             >
               {/* Left Column: Number & Client Title & Subtitle */}
               <div className="flex items-start lg:items-baseline gap-6 sm:gap-10">
@@ -186,16 +190,23 @@ export const HoverImageCaseStudyList: React.FC<HoverImageCaseStudyListProps> = (
 
                   {/* Mobile Preview Image Inline (Visible on small screens where hover does not exist) */}
                   <div className="block lg:hidden mt-4 pt-2">
-                    <div className="relative w-full max-w-sm rounded-xl overflow-hidden border border-white/10 aspect-video bg-stone-900">
-                      <img
-                        src={item.coverImage}
-                        alt={item.client}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                        <span className="text-xs font-mono text-brand-gold font-bold">
-                          {item.metrics && item.metrics[0] ? item.metrics[0].value : item.category}
+                    <div className="relative w-[200px] sm:w-[240px] aspect-[1/1.4] rounded-xl overflow-hidden border border-brand-gold/30 shadow-lg bg-stone-900">
+                      <picture>
+                        <source srcSet={item.coverImage.replace(/\.(png|jpe?g)$/, '.webp')} type="image/webp" />
+                        <img
+                          src={item.coverImage}
+                          alt={item.client}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
+                      <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/10">
+                        <span className="text-[10px] font-mono text-stone-300 truncate">
+                          {item.category}
+                        </span>
+                        <span className="text-[10px] font-mono text-brand-gold font-bold shrink-0">
+                          {item.metrics && item.metrics[0] ? item.metrics[0].value : 'Verified'}
                         </span>
                       </div>
                     </div>

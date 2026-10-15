@@ -111,3 +111,20 @@ html.lenis, html.lenis body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* High-DPI Crisp 4K Image Rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+@supports (image-rendering: high-quality) {
+  img {
+    image-rendering: high-quality;
+  }
+}
+
+/* Custom Cursor: hide default arrow on desktop fine pointer devices so bespoke dual-layer cursor leads */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, [role="button"], [data-cursor="view"] {
+    cursor: none !important;
+  }
+}

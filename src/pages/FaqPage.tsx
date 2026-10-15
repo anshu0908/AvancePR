@@ -23,7 +23,7 @@ export const FaqPage: React.FC = () => {
         <link rel="canonical" href="https://www.avancepr.in/faq" />
       </Helmet>
 
-      <main id="main-content" className="pt-28 sm:pt-36 bg-dark-bg text-light-bg min-h-screen">
+      <main id="main-content" className="pt-28 sm:pt-36 bg-transparent text-light-bg min-h-screen">
         {/* Header */}
         <div className="max-w-5xl mx-auto px-5 sm:px-8 pb-14 border-b border-white/10">
           <div className="inline-flex items-center gap-2 mb-4">

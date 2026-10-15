@@ -60,7 +60,7 @@ Campaign Brief: ${formData.message}`;
         <link rel="canonical" href="https://www.avancepr.in/contact" />
       </Helmet>
 
-      <main id="main-content" className="pt-28 sm:pt-36 bg-dark-bg text-light-bg min-h-screen">
+      <main id="main-content" className="pt-28 sm:pt-36 bg-transparent text-light-bg min-h-screen">
         {/* Editorial Header */}
         <div className="max-w-7xl mx-auto px-5 sm:px-8 pb-12 sm:pb-16 border-b border-white/10">
           <div className="inline-flex items-center gap-2 mb-4">
@@ -241,7 +241,7 @@ Campaign Brief: ${formData.message}`;
                       </a>
                       <a
                         href={mailLink}
-                        className="px-6 py-3 rounded-full bg-brand-gold hover:bg-brand-gold-hover text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors"
+                        className="px-6 py-3 rounded-full bg-brand-gold hover:bg-brand-gold-hover text-dark-bg font-extrabold text-sm flex items-center justify-center gap-2 transition-colors"
                       >
                         <Mail className="w-4 h-4" />
                         <span>Send as Email</span>
@@ -363,9 +363,9 @@ Campaign Brief: ${formData.message}`;
 
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl bg-brand-gold hover:bg-brand-gold-hover text-white font-bold text-base transition-all duration-300 shadow-lg hover:shadow-brand-gold/30 flex items-center justify-center gap-2 cursor-pointer mt-2"
+                      className="w-full py-4 rounded-xl bg-brand-gold hover:bg-brand-gold-hover text-dark-bg font-extrabold text-base transition-all duration-300 shadow-lg hover:shadow-brand-gold/30 flex items-center justify-center gap-2 cursor-pointer mt-2 focus-visible:ring-2 focus-visible:ring-brand-gold"
                     >
-                      <Send className="w-4 h-4" />
+                      <Send className="w-4 h-4 text-dark-bg" />
                       <span>Initiate Strategic Consultation</span>
                     </button>
 
